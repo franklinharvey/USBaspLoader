@@ -1,3 +1,19 @@
+Frank's special MacOS instructions:
+
+```bash
+brew tap osx-cross/avr
+brew install avr-gcc
+brew install avrdude
+make
+make flash
+make fuse
+make update
+```
+
+---
+
+Original Instructions:
+
 This is the README file for USBaspLoader.
 
 USBaspLoader is a USB boot loader for AVR microcontrollers. It can be used on
@@ -17,9 +33,8 @@ data.
 Since USBaspLoader cooperates with AVRDUDE, it can be used in conjunction with
 the Arduino software to upload flash memory data.
 
+# FILES IN THE DISTRIBUTION
 
-FILES IN THE DISTRIBUTION
-=========================
 Readme.txt ........ The file you are currently reading.
 firmware .......... Source code of the controller firmware.
 firmware/usbdrv ... USB driver -- See Readme.txt in that directory for info
@@ -27,14 +42,13 @@ updater ........... Source code of an updater-firmware exchanging bootloaders
 License.txt ....... Public license (GPL2) for all contents of this project.
 Schematics.txt .... File giving infos about default and recommended hw-layout.
 
-*_usbasploader.hex  precompiled USBaspLoader for default layout and settings
+\*\_usbasploader.hex precompiled USBaspLoader for default layout and settings
 
+# BUILDING AND INSTALLING
 
-BUILDING AND INSTALLING
-=======================
 This project can be built on Unix (Linux, FreeBSD or Mac OS X) or Windows.
 
-For all platforms, you must first describe your hardware and layout 
+For all platforms, you must first describe your hardware and layout
 specific parameters (PINs to use, etc...) in "firmware/bootloaderconfig.h".
 Some USB tuning is possible by modifying "firmware/usbconfig.h".
 All files provide working default settings, which can be used as an example.
@@ -65,17 +79,16 @@ Therefore you also could implement the "HAVE_SPMINTEREFACE_MAGICVALUE"-
 feature, protecting your board from wrong updates for other boards.
 
 At default configuration the bootloader protects itself from overwriting
-itself. In order to sustain the new update-capability, no lock bits 
+itself. In order to sustain the new update-capability, no lock bits
 ("make lock") should be programmed after uploading the firmware and
 programming the fuse bits.
 
-
 Building on Unix (Linux, FreeBSD and Mac):
 You need the GNU toolchain and avr-libc for the firmware. See
-    http://www.nongnu.org/avr-libc/user-manual/install_tools.html
+http://www.nongnu.org/avr-libc/user-manual/install_tools.html
 for a good description on how to install the GNU compiler toolchain and
 avr-libc on Unix. For Mac OS X, we provide a read-made package, see
-    http://www.obdev.at/avrmacpack/
+http://www.obdev.at/avrmacpack/
 
 To build the firmware, change to the "USBaspLoader" directory, edit the
 files mentioned above if you need to change settings (as also described in
@@ -85,8 +98,8 @@ set the fuses with "make fuse".
 As described within the Windows paragraph, "make update" can also
 be used instead.
 
-WORKING WITH THE BOOT LOADER
-============================
+# WORKING WITH THE BOOT LOADER
+
 The boot loader is quite easy to use. Set the jumper (or whatever condition
 you have configured) for boot loading on the target hardware, connect it to
 the host computer and (if not bus powered) issue a Reset on the AVR.
@@ -94,9 +107,8 @@ the host computer and (if not bus powered) issue a Reset on the AVR.
 You can now flash the device with AVRDUDE through a "virtual" USBasp
 programmer.
 
+# ABOUT THE LICENSE
 
-ABOUT THE LICENSE
-=================
 It is our intention to make our USB driver and this demo application
 available to everyone. Moreover, we want to make a broad range of USB
 projects and ideas for USB devices available to the general public. We
@@ -110,15 +122,13 @@ pay money for AVR-USB. As an additional benefit you get USB PIDs for free,
 licensed exclusively to you. See the file "CommercialLicense.txt" in the usbdrv
 directory for details.
 
+# MORE INFORMATION
 
-MORE INFORMATION
-================
 For questions, reports, suggestions or just for fun please contact
 Stephan Baerwolf (matrixstorm@gmx.de) and/or visit demonstration-board
 for USBaspLoader at
 
     http://matrixstorm.com/avr/tinyusbboard/
-
 
 For more information about Objective Development's firmware-only USB driver
 for Atmel's AVR microcontrollers please visit the URL
@@ -127,7 +137,6 @@ for Atmel's AVR microcontrollers please visit the URL
 
 A technical documentation of the driver's interface can be found in the
 file "firmware/usbdrv/usbdrv.h".
-
 
 --
 recent version:
